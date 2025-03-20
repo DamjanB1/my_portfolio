@@ -22,30 +22,46 @@
 body {
   margin: 0;
   font-family: var(--font-geist-sans), sans-serif;
-  background-color: #000000; /* Ensure entire background is black */
-  color: white; /* Default text color */
+  background-color: #000000;
+  color: white;
+  width: 100vw;
+  max-width: 100vw; /* Stricter cap */
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Fix for any wrapper div (e.g., in layout.tsx) */
+#__next, /* Next.js root div */
+main, /* Common wrapper */
+.landing-page-wrapper /* If you have a custom class */ {
+  width: 100vw;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 /* Hero Section with Vanta */
 .hero-vanta {
   position: relative;
   min-height: 100vh;
+  width: 100vw;
+  max-width: 100vw;
   display: flex;
-  flex-direction: column; /* Stack content vertically */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white !important; /* Ensure text is visible */
+  color: white !important;
   padding: 2rem;
   z-index: 1;
-  background-color: #000000 !important; /* Enforce black background */
-  overflow: hidden; /* Contain Vanta canvas */
+  background-color: #000000 !important;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .hero-vanta h1,
 .hero-vanta p,
 .hero-vanta .cta-buttons {
   position: relative;
-  z-index: 2; /* Ensure content stays above Vanta */
+  z-index: 2;
 }
 
 h1 {
@@ -66,6 +82,7 @@ p {
   margin-top: 20px;
 }
 
+/* These styles are overridden by Hero.modules.css, kept for reference */
 .cta-button {
   background-color: #ff3f81;
   padding: 1rem 2rem;
@@ -93,10 +110,11 @@ p {
   position: absolute !important;
   top: 0;
   left: 0;
-  width: 100% !important;
+  width: 100vw !important; /* Match viewport */
+  max-width: 100vw !important;
   height: 100% !important;
-  z-index: 0; /* Behind content */
-  pointer-events: none; /* Prevent interaction */
+  z-index: 0;
+  pointer-events: none;
 }
 
 /* Other Sections */
@@ -125,4 +143,35 @@ p {
 
 .portfolio .cta-button {
   margin-top: 20px;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .hero-vanta {
+    padding: 1.5rem;
+    width: 100vw;
+    max-width: 100vw;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-vanta {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
 }

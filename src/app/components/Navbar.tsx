@@ -1,14 +1,17 @@
-'use client';
+"use client";
 
 import React, { useState } from "react";
 import "./navbar.css"; // Importing CSS for the navbar
 
 const Navbar: React.FC = () => {
-  // Typing the state with a boolean to track menu open/close
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen); // Toggle the menu state
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false); // Close the menu
   };
 
   return (
@@ -24,9 +27,9 @@ const Navbar: React.FC = () => {
 
       {/* Navigation links */}
       <ul className={`nav-links ${isMenuOpen ? "open" : ""}`}>
-        <li><a href="/about">About</a></li>
-        <li><a href="/projects">Projects</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="/about" onClick={closeMenu}>About</a></li>
+        <li><a href="/projects" onClick={closeMenu}>Projects</a></li>
+        <li><a href="/contact" onClick={closeMenu}>Contact</a></li>
       </ul>
     </nav>
   );
