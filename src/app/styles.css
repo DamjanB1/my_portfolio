@@ -241,7 +241,7 @@ body {
 }
 
 .github-info .github-link:hover {
-  color: #ff3f81; /* Color change on hover */
+  color: #ff3f81;
 }
 
 .github-info .github-icon {
@@ -292,6 +292,65 @@ body {
   .portfolio h2::after {
     bottom: -6px;
     height: 3px;
+  }
+
+  /* Services Mobile Adjustments */
+  .services {
+    padding: 60px 5%;
+  }
+
+  .service-card {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 30px;
+  }
+
+  .service-text {
+    text-align: center;
+    margin-bottom: 15px; /* Slightly less space */
+  }
+
+  .service-text h3 {
+    font-size: 1.5rem;
+  }
+
+  .service-text p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .service-image {
+    width: 100%;
+    max-width: 300px; /* Middle ground between original 300px and oversized 400px */
+  }
+
+  .service-image img {
+    max-width: 100%;
+    height: auto;
+    min-height: 150px; /* Smaller than 200px, bigger than original */
+  }
+}
+
+@media (max-width: 480px) {
+  .services h2 {
+    font-size: 2rem;
+  }
+
+  .service-text h3 {
+    font-size: 1.3rem;
+  }
+
+  .service-text p {
+    font-size: 0.8rem;
+  }
+
+  .service-image {
+    max-width: 250px; /* Slightly smaller for tiny screens */
+  }
+
+  .service-image img {
+    min-height: 120px; /* Proportional reduction */
   }
 }
 
